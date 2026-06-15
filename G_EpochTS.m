@@ -75,6 +75,10 @@ if isempty( ev)
         error( 'For empty ev, segment length must be a matrix.');
     end
 
+    if any( seg <= 0)
+        error( 'seg must be non-negative integers for continuous segmentation.');
+    end
+
     nbsegs = length( seg);
     if isscalar( overlap)
         overlap = repmat( overlap, 1);
